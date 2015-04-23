@@ -35,9 +35,7 @@ This is an invaluable tool if you often work in production, staging, and local s
 
 	On and Off: Can be toggled from the admin bar by clicking 'Airplane Mode'. A ✗ or ✓ will indicate if Airplane Mode is enabled or disabled. 
 
-**Examples**
-
-To be added in wp-config.php:
+**Example wp-config.php Entries**
 
 `
 // set server environment to \'LOCAL\'
@@ -63,7 +61,8 @@ define('WPLT_DISABLED_PLUGINS', serialize(
 // enable the Airplane Mode toggle
 define('WPLT_AIRPLANE', 'true');
 
-// send an email to someone@somewhere.com when any post or page is updated
+// send an email to someone@somewhere.com 
+// whenever any post or page is updated
 define('WPLT_NOTIFY','someone@somewhere.com')
 `
 
