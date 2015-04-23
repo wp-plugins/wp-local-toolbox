@@ -6,9 +6,7 @@ Stable tag: 1.2
 License: GPL v2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A simple plugin to set different defaults for local, staging and production servers.
-
-Disable plugins, disable the loading of external files, set search engine visibility, display or hide the admin bar, display the server name and change the color of the admin bar, or literally anything else you can think of - all with constants in wp-config.
+A simple plugin to help manage development with local, staging and production servers.
 
 == Description ==
 Through constants defined in wp-config, you can disable plugins, disable the  loading of external files, set search engine visibility, display or hide the admin bar, display the server name and change the color of the admin bar, or literally anything else you can think of.
