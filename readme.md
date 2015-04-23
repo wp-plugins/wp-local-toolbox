@@ -29,16 +29,16 @@ This is an invaluable tool if you often work in production, staging, and local s
 
 * **WPLT_DISABLED_PLUGINS**: An array of plugins to disable. This does not store any data in the database, so plugins that are manually deactivated or activated will stay so when undefined in this constant.
 
-* **WPLT_NOTIFY**: Define this constant as the email address where you\'d like to be notified of post updates. Helpful in production to see if a client has submitted a new post, or in development to see if data is being added to the staging environment so you know to pull before pushing. Especially helpful when combined with APIs like Zapier.
+* **WPLT_NOTIFY**: Define this constant as the email address where you'd like to be notified of post updates. Helpful in production to see if a client has submitted a new post, or in development to see if data is being added to the staging environment so you know to pull before pushing. Especially helpful when combined with APIs like Zapier.
 
-* **WPLT_AIRPLANE**: Control loading of external files when developing locally. WP loads certain external files (fonts, gravatar, etc) and makes external HTTP calls. This isn\'t usually an issue, unless you're working in an evironment without a web connection. This plugin removes / unhooks those actions to reduce load time and avoid errors due to missing files.
+* **WPLT_AIRPLANE**: Control loading of external files when developing locally. WP loads certain external files (fonts, gravatar, etc) and makes external HTTP calls. This isn't usually an issue, unless you're working in an evironment without a web connection. This plugin removes / unhooks those actions to reduce load time and avoid errors due to missing files.
 
 	On and Off: Can be toggled from the admin bar by clicking 'Airplane Mode'. A ✗ or ✓ will indicate if Airplane Mode is enabled or disabled. 
 
 **Example wp-config.php Entries**
 
 `
-// set server environment to \'LOCAL\'
+// set server environment to 'LOCAL'
 define('WPLT_SERVER', 'local');
 
 // set admin bar color to #800080
@@ -52,7 +52,7 @@ define('WPLT_DISABLED_PLUGINS', serialize(
 	array(
 		'w3-total-cache/w3-total-cache.php',
 		'updraftplus/updraftplus.php',
-		'nginx-helper/nginx-helper.php\,
+		'nginx-helper/nginx-helper.php,
 		'wpremote/plugin.php',
 		'wordpress-https/wordpress-https.php',
 	)
