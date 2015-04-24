@@ -33,7 +33,7 @@ This is an invaluable tool if you often work in production, staging, and local s
 
 ##Example wp-config.php Entries
 
-`
+```
 // set server environment to 'LOCAL'
 define('WPLT_SERVER', 'local');
 
@@ -60,15 +60,15 @@ define('WPLT_AIRPLANE', 'true');
 // send an email to someone@somewhere.com 
 // whenever any post or page is updated
 define('WPLT_NOTIFY','someone@somewhere.com')
-`
+```
 
-=Modification=
+##Modification
 
 You can add code that will be executed depending on server name by modifying the following in wp-local-toolbox.php.
 
 I'd love a pull request if you come up with something useful.
 
-`
+```
 if (strtoupper(WPLT_SERVER) != 'LIVE' && strtoupper(WPLT_SERVER) != 'PRODUCTION') {
 	// Everything except PRODUCTION/LIVE SERVER
 
@@ -79,7 +79,7 @@ if (strtoupper(WPLT_SERVER) != 'LIVE' && strtoupper(WPLT_SERVER) != 'PRODUCTION'
 	// PRODUCTION/LIVE SERVER
 
 }
-`
+```
 
 ##Notes
 
