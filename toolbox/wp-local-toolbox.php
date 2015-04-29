@@ -93,12 +93,14 @@ if (defined('WPLT_SERVER') && WPLT_SERVER) {
 	 * Literally cannot even
 	 */
 	function goodbye_howdy($wp_admin_bar) {
-		$my_account = $wp_admin_bar->get_node('my-account');
-		$newtitle = str_replace('Howdy,', '', $my_account->title);
-		$wp_admin_bar->add_node(array(
-			'id' => 'my-account',
-			'title' => $newtitle,
-		));
+		if (is_user_logged_in()) {
+			$my_account = $wp_admin_bar->get_node('my-account');
+			$newtitle = str_replace('Howdy,', '', $my_account->title);
+			$wp_admin_bar->add_node(array(
+				'id' => 'my-account',
+				'title' => $newtitle,
+			));
+		}
 	}
 
 	function wplt_server_init() {
@@ -119,7 +121,11 @@ if (defined('WPLT_SERVER') && WPLT_SERVER) {
 				 */
 				function always_show_adminbar($wp_admin_bar) {
 					if (!is_user_logged_in()) {
-						$wp_admin_bar->add_menu(array('title' => __('Log In'), 'href' => wp_login_url()));
+						$wp_admin_bar->add_menu(array(
+							'id'    => 'wpadminbar',
+							'title' => __('Log In'),
+							'href' => wp_login_url()
+						));
 					}
 				}
 				add_action('admin_bar_menu', 'always_show_adminbar');
