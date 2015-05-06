@@ -1,8 +1,8 @@
 === WP Local Toolbox ===
 Contributors: joeguilmette,jb510
 Tags: admin,administration,responsive,dashboard,notification,simple, develop, developer, developing, development
-Tested up to: 4.2
-Stable tag: 1.2
+Tested up to: 4.2.1
+Stable tag: 1.2.1
 License: GPL v2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,5 +140,21 @@ You're welcome.
 
 * A healthy refactoring from [Jon Brown](https://twitter.com/jb510) of [9seeds](http://9seeds.com/)
 
+== Changelog ==
+= 1.2.1 =
+* Added support for Slack API with WPLT_NOTIFY
+* Enhanced WPLT_NOTIFY to correctly report all post types
+* Added a WPLT_ADMINBAR to control front end admin bar - it can now be:
+	* Forced to be hidden
+	* Forced to display
+	* Forced to display even when logged out
+* Continued tradition of 30:1 readme:code commits
+
+= 1.2 =
+* Added to WordPress Plugin Repository
+
 == Installation ==
 After installation, you must define constants in the wp-config.php file.
+
+In order for the Disable Plugins feature to function properly, WP Local Toolbox must be installed as an mu-plugin. You can read more about mu-plugins here: https://codex.wordpress.org/Must_Use_Plugins. We're investigating ways to avoid this requirement; if you have any ideas we'd love to hear it!
+
