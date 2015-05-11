@@ -144,11 +144,11 @@ You're welcome.
 = 1.2.1 =
 * Added support for Slack API with WPLT_NOTIFY
 * Enhanced WPLT_NOTIFY to correctly report all post types
-* Continued tradition of 30:1 readme:code commits
 * Added a WPLT_ADMINBAR to control front end admin bar - it can now be:
 	* Forced to be hidden
 	* Forced to display
 	* Forced to display even when logged out
+* Continued tradition of 30:1 readme:code commits
 
 = 1.2 =
 * Added to WordPress Plugin Repository
