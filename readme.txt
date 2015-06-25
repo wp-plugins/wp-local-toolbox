@@ -1,11 +1,19 @@
-#WP Local Toolbox
-#####A simple plugin to help manage development over local, staging and production servers.
+=== WP Local Toolbox ===
+Contributors: joeguilmette,jb510
+Tags: admin,administration,responsive,dashboard,notification,simple, develop, developer, developing, development
+Tested up to: 4.2.2
+Stable tag: 1.2.2
+License: GPL v2+
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
+A simple plugin to help manage development over local, staging and production servers.
+
+== Description ==
 Through constants defined in wp-config, you can disable plugins, disable the  loading of external files, set search engine visibility, display or hide the admin bar, display the server name and change the color of the admin bar, or literally anything else you can think of. All without touching the database, so you can push and pull without worrying.
 
-Available on WordPress.org: https://wordpress.org/plugins/wp-local-toolbox/
+For support, pull requests, and discussion: https://github.com/joeguilmette/wp-local-toolbox
 
-##Admin Bar
+= Admin Bar =
 
 Change the color of your admin bar and display the name of the current server environment. Green for local, orange for staging, and of course, red for production. You can also force the front end admin bar to hide, to display, and can even set it to display when logged out.
 
@@ -23,7 +31,7 @@ Change the color of your admin bar and display the name of the current server en
 
 **In wp-config.php:**
 
-```
+`
 // set server environment to 'LOCAL'
 define('WPLT_SERVER', 'local');
 
@@ -32,9 +40,9 @@ define('WPLT_COLOR', 'purple');
 
 // show the admin bar even when logged out
 define('WPLT_ADMINBAR', 'always');
-```
+`
 
-##Disable Plugins
+= Disable Plugins =
 
 Pass a serialized array in this constant to disable plugins. This does not store any data in the database, so plugins that are manually deactivated or activated through the admin panel will stay so.
 
@@ -44,7 +52,7 @@ In order for this feature to function properly, WP Local Toolbox must be install
 
 **In wp-config.php**:
 
-```
+`
 // deactivate a set of plugins
 define('WPLT_DISABLED_PLUGINS', serialize(
 	array(
@@ -54,9 +62,9 @@ define('WPLT_DISABLED_PLUGINS', serialize(
 		'wordpress-https/wordpress-https.php'
 	)
 ));
-```
+`
 
-##Post Update Notifications
+= Post Update Notifications =
 
 Receive notifications when any page, post, or attachment is added or updated. Notifications can be received via email, or can be sent to a Slack channel via their Incoming WebHook API.
 
@@ -70,7 +78,7 @@ This is helpful in production to see if a client has submitted a new post, or in
 
 **In wp-config.php**:
 
-```
+`
 // send an email to someone@somewhere.com 
 // whenever any post or page is updated
 define('WPLT_NOTIFY','someone@somewhere.com')
@@ -78,9 +86,9 @@ define('WPLT_NOTIFY','someone@somewhere.com')
 // or, send a notification to a Slack channel
 define('WPLT_NOTIFY', 'https://hooks.slack.com/services/etc');
 define('WPLT_NOTIFY_CHANNEL','#channel');
-```
+`
 
-##Airplane Mode
+= Airplane Mode =
 
 Control loading of external files when developing locally. WP loads certain external files (fonts, gravatar, etc) and makes external HTTP calls. This isn't usually an issue, unless you're working in an evironment without a web connection. This plugin removes / unhooks those actions to reduce load time and avoid errors due to missing files.
 
@@ -90,18 +98,18 @@ On and Off: Can be toggled from the admin bar by clicking 'Airplane Mode'. In th
 
 **In wp-config.php**:
 
-```
+`
 // enable the Airplane Mode toggle
 define('WPLT_AIRPLANE', 'true');
-```
+`
 
-##Modification
+= Modification =
 
 You can add code that will be executed depending on server name by modifying the following in wp-local-toolbox.php.
 
 I'd love a pull request if you come up with something useful.
 
-```
+`
 if (strtoupper(WPLT_SERVER) != 'LIVE' && strtoupper(WPLT_SERVER) != 'PRODUCTION') {
 	// Everything except PRODUCTION/LIVE SERVER
 
@@ -112,15 +120,15 @@ if (strtoupper(WPLT_SERVER) != 'LIVE' && strtoupper(WPLT_SERVER) != 'PRODUCTION'
 	// PRODUCTION/LIVE SERVER
 
 }
-```
+`
 
-##Notes
+= Notes =
 
 As a special thank you, this plugin will remove the ridiculous `Howdy, ` that is prepended to the username in the admin bar.
 
 You're welcome.
 
-##Credit
+= Credit =
 
 * Plugin disabling from [Mark Jaquith](https://twitter.com/markjaquith): https://gist.github.com/markjaquith/1044546
 
@@ -132,5 +140,24 @@ You're welcome.
 
 * A healthy refactoring from [Jon Brown](https://twitter.com/jb510) of [9seeds](http://9seeds.com/)
 
-##Installation
+== Changelog ==
+= 1.2.2 =
+* Update Airplane Mode to latest ([f9e8bc1cc0](https://github.com/norcross/airplane-mode/commit/f9e8bc1cc0a65542af6cfc5e1904ec63fb3819ff))
+
+= 1.2.1 =
+* Added support for Slack API with WPLT_NOTIFY
+* Enhanced WPLT_NOTIFY to correctly report all post types
+* Added a WPLT_ADMINBAR to control front end admin bar - it can now be:
+	* Forced to be hidden
+	* Forced to display
+	* Forced to display even when logged out
+* Continued tradition of 30:1 readme:code commits
+
+= 1.2 =
+* Added to WordPress Plugin Repository
+
+== Installation ==
 After installation, you must define constants in the wp-config.php file.
+
+In order for the Disable Plugins feature to function properly, WP Local Toolbox must be installed as an mu-plugin. You can read more about mu-plugins here: https://codex.wordpress.org/Must_Use_Plugins. We're investigating ways to avoid this requirement; if you have any ideas we'd love to hear it!
+
